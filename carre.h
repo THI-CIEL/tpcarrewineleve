@@ -100,7 +100,8 @@ ref class CCarre
 			/// <param name="dy">Valeur dy du déplacement</param>
 			void Deplacer(int dx, int dy) 
 			{
-				// A COMPLETER /////////////////////////////////////////////////////////////////////
+				this->sx += dx;
+				this->sy += dy;
 			}
 
 			/// <summary>
@@ -122,5 +123,11 @@ ref class CCarre
 				Graphics ^g = form->CreateGraphics();
 				g->FillRectangle(gcnew SolidBrush(form->BackColor), sx, sy, cote, cote);
 			}
-				
+			
+			void Animer(int dx, int dy, Form form)
+			{
+				this->Effacer(form);
+				this->Deplacer(dx, dy);
+				this->Dessiner(form);
+			}
 	};
